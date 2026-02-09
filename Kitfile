@@ -1,0 +1,13 @@
+manifestVersion: 1.0.0
+package:
+  name: playground-series-s6e2
+  description: Kaggle playground-series-s6e2 comp
+  authors: [Adam Al-Rahman]
+code:
+  - path: .
+datasets:
+  - path: requirements.txt
+docs:
+  - path: README.md
+    description: Readme file
+  - path: docs

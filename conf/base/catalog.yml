@@ -1,0 +1,11 @@
+raw_ingestion.ds_exam_score:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: polars.CSVDataset
+    filepath: data/raw_ingestion/train.csv
+
+raw_ingestion.ds_exam_score_test:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: polars.CSVDataset
+    filepath: data/raw_ingestion/test.csv
