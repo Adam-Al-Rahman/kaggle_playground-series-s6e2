@@ -1,0 +1,170 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "setup",
+      "code_hash": "578b1a9a76b126bde2c50aeeba6005b4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "9c5a713989db141edef450fc76329b88",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"scaled-feature-eda\">Scaled Feature EDA</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "4cbc0d11f7874da0ddbcba4184e84d71",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "3ab8f3c475e95ae7b640c6bfb6a8f8c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "1b299d4b7c5d187836b412661b40c6db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[02/26/26 11:29:33] INFO     Using                   __init__.py:269\n                             'conf/logging.yml' as                  \n                             logging configuration.                 \n                             You can change this by                 \n                             setting the                            \n                             KEDRO_LOGGING_CONFIG                   \n                             environment variable                   \n                             accordingly.                           \n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "/home/adam-al-rahman/miniforge3/envs/machine_learning/lib/python3.12/site-packages/mlflow/pyfunc/utils/data_validation.py:186: UserWarning: \u001b[33mAdd type hints to the `predict` method to enable data validation and automatic signature inference during model logging. Check https://mlflow.org/docs/latest/model/python_model.html#type-hint-usage-in-pythonmodel for more details.\u001b[0m\n  color_warning(\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "                    INFO     Registering new       mlflow_hook.py:65\n                             custom resolver:                       \n                             'km.random_name'                       \n                    INFO     The          kedro_mlflow_config.py:294\n                             'tracking_ur                           \n                             i' key in                              \n                             mlflow.yml                             \n                             is relative                            \n                             ('server.mlf                           \n                             low_(trackin                           \n                             g|registry)_                           \n                             uri =                                  \n                             mlruns'). It                           \n                             is converted                           \n                             to a valid                             \n                             uri:                                   \n                             'file:///hom                           \n                             e/adam-al-ra                           \n                             hman/.codex/                           \n                             kaggle/playg                           \n                             round-series                           \n                             -s6e2/mlruns                           \n                             '                                      \n[02/26/26 11:29:34] WARNING  Replacing dataset   data_catalog.py:525\n                             'baseline_models.mo                    \n                             del_v0_metrics'                        \n                    INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_heart_disease_                     \n                             train_scaled                           \n                             (MlflowCSVDataset)                     \n                             ...                                    \n[02/26/26 11:29:36] INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_heart_disease_                     \n                             test_scaled                            \n                             (MlflowCSVDataset)                     \n                             ...                                    \n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "15931e9bafda38c4a7a4073698c079b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"BP\", \"Cholesterol\", \"Sex\", \"Chest pain type\", \"FBS over 120\", \"EKG results\", \"Slope of ST\", \"Thallium\", \"HR_Deficit\", \"High_Risk_Ischemia\", \"Severe_Blockage_Age_Adjusted\", \"Heart Disease\", \"id\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "613eac95e7e55aebc6e495a12d173d07",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"principal-component-analysis\">Principal Component Analysis</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "e4c1fd4015ab684b5731f677eccbba45",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "0028bf7fa998cedf0b977d17c40c3bcf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"1-intrinsic-dimensionality-scree-plot\">1. Intrinsic Dimensionality (Scree Plot)</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Does our engineered feature space hold unique geometric information, or is it mathematically redundant?</span></span><marimo-ui-element object-id='SFPL-0' random-id='a32caa52-93cf-da92-a964-7d0f47de0422'><marimo-vega data-initial-value='{}' data-label='null' data-spec='{&quot;config&quot;:{&quot;view&quot;:{&quot;continuousWidth&quot;:300,&quot;continuousHeight&quot;:300}},&quot;layer&quot;:[{&quot;mark&quot;:{&quot;type&quot;:&quot;bar&quot;,&quot;color&quot;:&quot;#4c78a8&quot;,&quot;opacity&quot;:0.6},&quot;encoding&quot;:{&quot;x&quot;:{&quot;field&quot;:&quot;Component&quot;,&quot;title&quot;:&quot;Principal Component&quot;,&quot;type&quot;:&quot;ordinal&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;Explained_Variance&quot;,&quot;title&quot;:&quot;Variance Explained&quot;,&quot;type&quot;:&quot;quantitative&quot;}}},{&quot;mark&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;color&quot;:&quot;#e45756&quot;,&quot;point&quot;:true},&quot;encoding&quot;:{&quot;x&quot;:{&quot;field&quot;:&quot;Component&quot;,&quot;title&quot;:&quot;Principal Component&quot;,&quot;type&quot;:&quot;ordinal&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;Cumulative_Variance&quot;,&quot;scale&quot;:{&quot;domain&quot;:[0,1.05]},&quot;title&quot;:&quot;Cumulative Variance&quot;,&quot;type&quot;:&quot;quantitative&quot;}}}],&quot;data&quot;:{&quot;url&quot;:&quot;./@file/2674-314151-ykaP4Vkm.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;height&quot;:300,&quot;resolve&quot;:{&quot;scale&quot;:{&quot;y&quot;:&quot;independent&quot;}},&quot;title&quot;:&quot;Scree Plot (Top 11 Components)&quot;,&quot;width&quot;:500,&quot;&#36;schema&quot;:&quot;https://vega.github.io/schema/vega-lite/v6.1.0.json&quot;}' data-chart-selection='true' data-field-selection='true' data-embed-options='{}'></marimo-vega></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"2-feature-influence-pca-loadings\">2. Feature Influence (PCA Loadings)</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Which original features are mathematically driving the variance in our top two components? <em>(Top 10 highlighted)</em></span></span><marimo-ui-element object-id='SFPL-1' random-id='f871821a-3035-7bf5-68f9-de437812ed32'><marimo-vega data-initial-value='{}' data-label='null' data-spec='{&quot;config&quot;:{&quot;view&quot;:{&quot;continuousWidth&quot;:300,&quot;continuousHeight&quot;:300}},&quot;layer&quot;:[{&quot;data&quot;:{&quot;url&quot;:&quot;./@file/1458-314151-gbMyruLi.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;rule&quot;,&quot;color&quot;:&quot;black&quot;,&quot;opacity&quot;:0.3,&quot;strokeDash&quot;:[2,2]},&quot;encoding&quot;:{&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;,&quot;type&quot;:&quot;quantitative&quot;}}},{&quot;data&quot;:{&quot;url&quot;:&quot;./@file/1458-314151-c7LjLAyi.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;rule&quot;,&quot;color&quot;:&quot;black&quot;,&quot;opacity&quot;:0.3,&quot;strokeDash&quot;:[2,2]},&quot;encoding&quot;:{&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;,&quot;type&quot;:&quot;quantitative&quot;}}},{&quot;data&quot;:{&quot;url&quot;:&quot;./@file/3114-314151-4gtoSfQy.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;circle&quot;,&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:0.5,&quot;size&quot;:40},&quot;encoding&quot;:{&quot;tooltip&quot;:[{&quot;field&quot;:&quot;Feature&quot;,&quot;type&quot;:&quot;nominal&quot;},{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;},{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;}],&quot;x&quot;:{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;title&quot;:&quot;PC1 Loading&quot;,&quot;type&quot;:&quot;quantitative&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;title&quot;:&quot;PC2 Loading&quot;,&quot;type&quot;:&quot;quantitative&quot;}}},{&quot;data&quot;:{&quot;url&quot;:&quot;./@file/3058-314151-XxaKlWj0.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;circle&quot;,&quot;color&quot;:&quot;#d62728&quot;,&quot;size&quot;:70},&quot;encoding&quot;:{&quot;tooltip&quot;:[{&quot;field&quot;:&quot;Feature&quot;,&quot;type&quot;:&quot;nominal&quot;},{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;},{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;}],&quot;x&quot;:{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;}}},{&quot;data&quot;:{&quot;url&quot;:&quot;./@file/3058-314151-fSMfCXKm.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;text&quot;,&quot;align&quot;:&quot;left&quot;,&quot;baseline&quot;:&quot;middle&quot;,&quot;color&quot;:&quot;black&quot;,&quot;dx&quot;:8,&quot;dy&quot;:-2,&quot;fontSize&quot;:11,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;encoding&quot;:{&quot;text&quot;:{&quot;field&quot;:&quot;Feature&quot;,&quot;type&quot;:&quot;nominal&quot;},&quot;tooltip&quot;:[{&quot;field&quot;:&quot;Feature&quot;,&quot;type&quot;:&quot;nominal&quot;},{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;},{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;}],&quot;x&quot;:{&quot;field&quot;:&quot;PC1_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;PC2_Weight&quot;,&quot;type&quot;:&quot;quantitative&quot;}}}],&quot;height&quot;:400,&quot;title&quot;:&quot;PCA Loadings (Top 10 Feature Contributions)&quot;,&quot;width&quot;:800,&quot;&#36;schema&quot;:&quot;https://vega.github.io/schema/vega-lite/v6.1.0.json&quot;}' data-chart-selection='true' data-field-selection='true' data-embed-options='{}'></marimo-vega></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"3-global-structure-target-separability\">3. Global Structure &amp; Target Separability</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">In standard scaled space, do the target classes form distinct clusters along the axes of highest variance?</span></span><marimo-ui-element object-id='SFPL-2' random-id='cf1c35c6-87b1-c71c-ee22-40128117680c'><marimo-vega data-initial-value='{}' data-label='null' data-spec='{&quot;config&quot;:{&quot;view&quot;:{&quot;continuousWidth&quot;:300,&quot;continuousHeight&quot;:300}},&quot;data&quot;:{&quot;url&quot;:&quot;./@file/122202-314151-n90sF3h0.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;circle&quot;,&quot;opacity&quot;:0.7,&quot;size&quot;:45},&quot;encoding&quot;:{&quot;color&quot;:{&quot;field&quot;:&quot;Target&quot;,&quot;scale&quot;:{&quot;scheme&quot;:&quot;tableau10&quot;},&quot;type&quot;:&quot;nominal&quot;},&quot;tooltip&quot;:[{&quot;field&quot;:&quot;Target&quot;,&quot;type&quot;:&quot;quantitative&quot;}],&quot;x&quot;:{&quot;field&quot;:&quot;PC1&quot;,&quot;title&quot;:&quot;PC1 (97.9% Variance)&quot;,&quot;type&quot;:&quot;quantitative&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;PC2&quot;,&quot;title&quot;:&quot;PC2 (1.0% Variance)&quot;,&quot;type&quot;:&quot;quantitative&quot;}},&quot;height&quot;:400,&quot;params&quot;:[{&quot;name&quot;:&quot;param_1e9efca18e7a2868&quot;,&quot;select&quot;:{&quot;type&quot;:&quot;interval&quot;,&quot;encodings&quot;:[&quot;x&quot;,&quot;y&quot;]},&quot;bind&quot;:&quot;scales&quot;}],&quot;title&quot;:&quot;Scaled Space Global Structure (PCA 2D Projection)&quot;,&quot;width&quot;:500,&quot;&#36;schema&quot;:&quot;https://vega.github.io/schema/vega-lite/v6.1.0.json&quot;}' data-chart-selection='true' data-field-selection='true' data-embed-options='{}'></marimo-vega></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"4-multivariate-anomaly-detection\">4. Multivariate Anomaly Detection</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Using Isolation Forests to detect points that break the multidimensional correlation structure.</span></span><marimo-ui-element object-id='SFPL-3' random-id='86599c2e-0a8c-6180-b59f-de54faac0702'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Status&#92;&quot;:&#92;&quot;Normal&#92;&quot;,&#92;&quot;count&#92;&quot;:623700},{&#92;&quot;Status&#92;&quot;:&#92;&quot;Anomaly&#92;&quot;,&#92;&quot;count&#92;&quot;:6300}]&quot;' data-total-rows='2' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-selection='&quot;multi&quot;' data-show-filters='false' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;download&quot;'></marimo-table></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"5-scaled-distribution-sanity-check\">5. Scaled Distribution Sanity Check</h3></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Ensuring extreme values haven't compressed the normal operating range into a tiny band near zero.</span></span><marimo-ui-element object-id='SFPL-4' random-id='91c0a108-ec03-34f8-1fec-7f378f4433d7'><marimo-vega data-initial-value='{}' data-label='null' data-spec='{&quot;config&quot;:{&quot;view&quot;:{&quot;continuousWidth&quot;:300,&quot;continuousHeight&quot;:300}},&quot;data&quot;:{&quot;url&quot;:&quot;./@file/66793506-314151-Iroy70Ad.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;boxplot&quot;,&quot;extent&quot;:&quot;min-max&quot;},&quot;encoding&quot;:{&quot;color&quot;:{&quot;field&quot;:&quot;Feature&quot;,&quot;type&quot;:&quot;nominal&quot;},&quot;x&quot;:{&quot;field&quot;:&quot;Feature&quot;,&quot;title&quot;:&quot;Top 5 High-Variance Features&quot;,&quot;type&quot;:&quot;nominal&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;Scaled_Value&quot;,&quot;title&quot;:&quot;Standardized Value&quot;,&quot;type&quot;:&quot;quantitative&quot;}},&quot;height&quot;:300,&quot;title&quot;:&quot;Distribution Sanity Check (Post-Scaling)&quot;,&quot;width&quot;:500,&quot;&#36;schema&quot;:&quot;https://vega.github.io/schema/vega-lite/v6.1.0.json&quot;}' data-chart-selection='true' data-field-selection='true' data-embed-options='{}'></marimo-vega></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "957f92fbff0c0b905cb2e91b55903e5c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><ul>\n<li>Variables with a correlation are groupeed together</li>\n<li>Observations with similar overall profiles are clustered together</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "a1bd6018f792042590803b878b7356c2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

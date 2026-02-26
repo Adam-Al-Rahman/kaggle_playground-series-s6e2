@@ -1,0 +1,190 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "d1d17c2d9e3baf7fce84759f6822ac07",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wabK",
+      "code_hash": "eae6533140520e73f2a514a86ae08ce1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"baseline-logistic-regression-v1\">Baseline: Logistic Regression v1</h1>\n<span class=\"paragraph\">Post Feature engineering and selecting important features</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "oxZD",
+      "code_hash": "fa7afb0ee6223e861f8ad9005093525d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[02/26/26 11:45:39] INFO     Using                   __init__.py:269\n                             'conf/logging.yml' as                  \n                             logging configuration.                 \n                             You can change this by                 \n                             setting the                            \n                             KEDRO_LOGGING_CONFIG                   \n                             environment variable                   \n                             accordingly.                           \n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "/home/adam-al-rahman/miniforge3/envs/machine_learning/lib/python3.12/site-packages/mlflow/pyfunc/utils/data_validation.py:186: UserWarning: \u001b[33mAdd type hints to the `predict` method to enable data validation and automatic signature inference during model logging. Check https://mlflow.org/docs/latest/model/python_model.html#type-hint-usage-in-pythonmodel for more details.\u001b[0m\n  color_warning(\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[02/26/26 11:45:43] INFO     Registering new       mlflow_hook.py:65\n                             custom resolver:                       \n                             'km.random_name'                       \n                    INFO     The          kedro_mlflow_config.py:294\n                             'tracking_ur                           \n                             i' key in                              \n                             mlflow.yml                             \n                             is relative                            \n                             ('server.mlf                           \n                             low_(trackin                           \n                             g|registry)_                           \n                             uri =                                  \n                             mlruns'). It                           \n                             is converted                           \n                             to a valid                             \n                             uri:                                   \n                             'file:///hom                           \n                             e/adam-al-ra                           \n                             hman/.codex/                           \n                             kaggle/playg                           \n                             round-series                           \n                             -s6e2/mlruns                           \n                             '                                      \n[02/26/26 11:45:44] WARNING  Replacing dataset   data_catalog.py:525\n                             'baseline_models.mo                    \n                             del_v0_metrics'                        \n                    INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_important_feat                     \n                             ures_train                             \n                             (MlflowCSVDataset)                     \n                             ...                                    \n[02/26/26 11:45:45] INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_important_feat                     \n                             ures_test                              \n                             (MlflowCSVDataset)                     \n                             ...                                    \n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "YHsH",
+      "code_hash": "f50f39d4a93c52406f46e466446ee2ee",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='YHsH-0' random-id='a32caa52-93cf-da92-a964-7d0f47de0422'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:309019,&#92;&quot;HR_Deficit&#92;&quot;:10.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:309019},{&#92;&quot;&#92;&quot;:562498,&#92;&quot;HR_Deficit&#92;&quot;:-11.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:562498},{&#92;&quot;&#92;&quot;:269993,&#92;&quot;HR_Deficit&#92;&quot;:54.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:269993},{&#92;&quot;&#92;&quot;:491397,&#92;&quot;HR_Deficit&#92;&quot;:16.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.4346433659260955,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:491397},{&#92;&quot;&#92;&quot;:433965,&#92;&quot;HR_Deficit&#92;&quot;:-11.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:433965},{&#92;&quot;&#92;&quot;:303307,&#92;&quot;HR_Deficit&#92;&quot;:4.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:303307},{&#92;&quot;&#92;&quot;:51128,&#92;&quot;HR_Deficit&#92;&quot;:3.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:51128},{&#92;&quot;&#92;&quot;:422207,&#92;&quot;HR_Deficit&#92;&quot;:17.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.4346433659260955,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:422207},{&#92;&quot;&#92;&quot;:561005,&#92;&quot;HR_Deficit&#92;&quot;:6.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:561005},{&#92;&quot;&#92;&quot;:388508,&#92;&quot;HR_Deficit&#92;&quot;:31.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:388508}]&quot;' data-total-rows='10' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;HR_Deficit&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Thallium&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Chest pain type&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Heart Disease&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;id&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;df&quot;'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FHgK",
+      "code_hash": "0dcf4d1ffd7706b08526105fe78c5eba",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vrDr",
+      "code_hash": "306fbf1fd88a2df047e6f32dbc49a91b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "                           Logit Regression Results                           \n==============================================================================\nDep. Variable:     Q('Heart Disease')   No. Observations:               504000\nModel:                          Logit   Df Residuals:                   503996\nMethod:                           MLE   Df Model:                            3\nDate:                Thu, 26 Feb 2026   Pseudo R-squ.:                  0.4377\nTime:                        11:47:56   Log-Likelihood:            -1.9493e+05\nconverged:                       True   LL-Null:                   -3.4666e+05\nCovariance Type:            nonrobust   LLR p-value:                     0.000\n========================================================================================\n                           coef    std err          z      P>|z|      [0.025      0.975]\n----------------------------------------------------------------------------------------\nIntercept               -3.7038      0.011   -330.337      0.000      -3.726      -3.682\nHR_Deficit               0.0329      0.000    149.986      0.000       0.033       0.033\nQ('Chest pain type')     0.8960      0.004    253.950      0.000       0.889       0.903\nThallium                 0.6581      0.002    309.680      0.000       0.654       0.662\n========================================================================================\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "LsRV",
+      "code_hash": "cadd547c11932eb129a1beba67e8812e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jNHr",
+      "code_hash": "8e4dcd3d4e922f48cbac4193efbc7746",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='jNHr-0' random-id='91c0a108-ec03-34f8-1fec-7f378f4433d7'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:364426,&#92;&quot;HR_Deficit&#92;&quot;:31.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.4346433659260955,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:364426},{&#92;&quot;&#92;&quot;:224752,&#92;&quot;HR_Deficit&#92;&quot;:57.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:224752},{&#92;&quot;&#92;&quot;:110423,&#92;&quot;HR_Deficit&#92;&quot;:12.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:110423},{&#92;&quot;&#92;&quot;:272555,&#92;&quot;HR_Deficit&#92;&quot;:26.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1,&#92;&quot;id&#92;&quot;:272555},{&#92;&quot;&#92;&quot;:199651,&#92;&quot;HR_Deficit&#92;&quot;:18.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0,&#92;&quot;id&#92;&quot;:199651}]&quot;' data-total-rows='5' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;HR_Deficit&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Thallium&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Chest pain type&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Heart Disease&quot;,[&quot;integer&quot;,&quot;int64&quot;]],[&quot;id&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;df&quot;'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "epNR",
+      "code_hash": "e6b7d1d49a5d914aa38ecf1a94d54e11",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='epNR-0' random-id='2346f79c-f71b-8388-041b-7e28321a0ba0'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;id&#92;&quot;:364426,&#92;&quot;y_pred&#92;&quot;:0,&#92;&quot;y_actual&#92;&quot;:0},{&#92;&quot;id&#92;&quot;:224752,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:110423,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:272555,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:199651,&#92;&quot;y_pred&#92;&quot;:0,&#92;&quot;y_actual&#92;&quot;:0},{&#92;&quot;id&#92;&quot;:348918,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:0},{&#92;&quot;id&#92;&quot;:395208,&#92;&quot;y_pred&#92;&quot;:0,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:254046,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:401796,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1},{&#92;&quot;id&#92;&quot;:373978,&#92;&quot;y_pred&#92;&quot;:1,&#92;&quot;y_actual&#92;&quot;:1}]&quot;' data-total-rows='126000' data-total-columns='3' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;id&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;y_pred&quot;,[&quot;integer&quot;,&quot;i64&quot;]],[&quot;y_actual&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;df&quot;'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZYXz",
+      "code_hash": "e82e96e47c97d0adc184d60c1833c2ca",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='ZYXz-0' random-id='1a7b3dd7-7a84-3f9f-8747-f42ae1072e6c'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Metric&#92;&quot;:&#92;&quot;Log-Likelihood&#92;&quot;,&#92;&quot;Value&#92;&quot;:-194930.6768822684},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;LL-Null&#92;&quot;,&#92;&quot;Value&#92;&quot;:-346662.5859180649},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;Pseudo R-squared&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.4376933514009469},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;AIC&#92;&quot;,&#92;&quot;Value&#92;&quot;:389869.3537645368},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;BIC&#92;&quot;,&#92;&quot;Value&#92;&quot;:389913.875090725},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;LLR p-value&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.0},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;Accuracy&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.8279603174603175},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;Precision&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.8337910768817101},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;Recall&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.7692430363597703},{&#92;&quot;Metric&#92;&quot;:&#92;&quot;F1-Score&#92;&quot;,&#92;&quot;Value&#92;&quot;:0.8002175055067602}]&quot;' data-total-rows='15' data-total-columns='2' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Metric&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Value&quot;,[&quot;number&quot;,&quot;f64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;df&quot;'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Npqx",
+      "code_hash": "dc5d2890346ed1383d362c76bbe48829",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Zuuo",
+      "code_hash": "ad0bcd388b427c66c2a5ee0c5dee3397",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"theory-interpretation-of-your-results\">Theory &amp; Interpretation of Your Results</h2>\n<span class=\"paragraph\">Your logit (logistic regression) output provides a window into how well your chosen variables explain the presence of heart disease.</span>\n<ul>\n<li><strong>Pseudo R-squared (0.4377):</strong> In ordinary least squares (OLS) regression, R-squared represents the percentage of variance explained. Logistic regression uses McFadden's Pseudo R-squared instead. A value between 0.2 and 0.4 indicates an excellent model fit. At 0.4377, your model's predictive power is remarkable, especially for complex biological/medical data.</li>\n<li><strong>LLR p-value (0.000):</strong> The Log-Likelihood Ratio tests whether your model as a whole is better than a \"null\" model (a model with no predictors that just guesses the most frequent outcome). A value of 0.000 confirms that your features collectively provide a massive improvement in predictive accuracy.</li>\n<li><strong>The Power of Large N:</strong> You have 504,000 observations. With a sample size this massive, standard errors naturally shrink to near zero, meaning your p-values (P&gt;|z|) will almost always be 0.000. In these cases, we stop looking at p-values to determine importance and instead look at the <strong>coefficients</strong> (effect sizes).</li>\n</ul>\n<span class=\"paragraph\">The relationship is defined by the logistic function, mapping any real-valued number into a probability between 0 and 1:</span>\n<marimo-tex class=\"arithmatex\">||[P(Y=1) = \\frac{1}{1 + e^{-(\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\beta_3 X_3)}}||]</marimo-tex><span class=\"paragraph\">Looking at your coefficients:</span>\n<ul>\n<li><strong>Chest pain type (0.8960):</strong> This is your strongest predictor. For every one-unit increase in the category of chest pain, the log-odds of having heart disease increase by roughly 0.89.</li>\n<li><strong>Thallium (0.6581):</strong> Also a massive contributor to the risk profile.</li>\n<li><strong>HR_Deficit (0.0329):</strong> While highly significant, its individual per-unit impact on the log-odds is relatively small compared to the other two features.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

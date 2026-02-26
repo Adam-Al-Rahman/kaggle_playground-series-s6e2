@@ -7,12 +7,7 @@ requires-python = ">=3.10"
 name = "playground_series_s6e2"
 readme = "README.md"
 dynamic = ["version"]
-dependencies = [
-    "ipython>=8.10",
-    "jupyterlab>=3.0",
-    "notebook",
-    "kedro~=1.1.1"
-]
+dependencies = ["ipython>=8.10", "jupyterlab>=3.0", "notebook", "kedro~=1.1.1"]
 
 [project.scripts]
 "playground-series-s6e2" = "playground_series_s6e2.__main__:main"
@@ -29,20 +24,21 @@ docs = [
     "sphinx_copybutton==0.5.2",
     "ipykernel>=5.3, <7.0",
     "Jinja2<3.2.0",
-    "myst-parser>=1.0,<2.1"
+    "myst-parser>=1.0,<2.1",
 ]
 dev = [
     "pytest-cov>=3,<7",
     "pytest-mock>=1.7.1, <2.0",
     "pytest~=7.2",
-    "ruff~=0.12.0"
+    "ruff~=0.12.0",
 ]
 
 [tool.setuptools.dynamic]
-version = {attr = "playground_series_s6e2.__version__"}
+version = { attr = "playground_series_s6e2.__version__" }
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["src", "."]
+include = ["*", "notebooks*"]
 namespaces = false
 
 [tool.kedro]
@@ -72,15 +68,23 @@ show-fixes = true
 
 [tool.ruff.lint]
 select = [
-    "F",   # Pyflakes
-    "W",   # pycodestyle
-    "E",   # pycodestyle
-    "I",   # isort
-    "UP",  # pyupgrade
-    "PL",  # Pylint
+    "F",    # Pyflakes
+    "W",    # pycodestyle
+    "E",    # pycodestyle
+    "I",    # isort
+    "UP",   # pyupgrade
+    "PL",   # Pylint
     "T201", # Print Statement
 ]
-ignore = ["E501"]  # Ruff format takes care of line-too-long
+ignore = ["E501"] # Ruff format takes care of line-too-long
 
 [tool.kedro_telemetry]
 project_id = "7d14536f4634438abca9ca360d36fc77"
+
+
+[tool.marimo.runtime]
+output_max_bytes = 1_000_000_000
+pythonpath = ["src", "notebooks"]
+
+[tool.marimo.display]
+custom_css = ["./marimo.css"]

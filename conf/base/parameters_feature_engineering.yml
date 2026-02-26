@@ -1,0 +1,14 @@
+# This is a boilerplate parameters config generated for pipeline 'feature_engineering'
+# using Kedro 1.1.1.
+#
+# Documentation for this file format can be found in "Parameters"
+# Link: https://docs.kedro.org/en/1.1.1/configuration/parameters.html
+
+features_to_scale:
+  - "BP"
+  - "Cholesterol"
+
+important_features:
+  - "HR_Deficit"
+  - "Thallium"
+  - "Chest pain type"

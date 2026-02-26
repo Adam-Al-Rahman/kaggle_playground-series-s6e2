@@ -1,0 +1,150 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "d8ec34593124e50c3eb63b941ea254d8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"feature-profiling\"><span style=\"color: #2c3e50\">Feature Profiling</span></h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "185e0bab81d8f63551134f95e52c837c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Train Features</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "d0bf07afbea80b2fd9adbe8d23bf090b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Test Features</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "5d0f6195acc02788f3e1dc04f005e218",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"domain-type-inference\">Domain Type Inference</h2>\n<span class=\"paragraph\">Using domain knowledge and level of measurement to categories features.</span>\n<h3 id=\"continuous-features-magnitude-matters\">Continuous Features (Magnitude Matters)</h3>\n<span class=\"paragraph\"><em>Treatment: These measure physical quantities. We must Scale them because Logistic Regression thinks \"bigger number = more important.\"</em></span>\n<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Feature</th>\n<th style=\"text-align: left;\">Domain Label</th>\n<th style=\"text-align: left;\">Why is it <strong>Continuous</strong>?</th>\n<th style=\"text-align: left;\">Logistic Reg. Action (Baseline Model)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>Age</strong></td>\n<td style=\"text-align: left;\">Vascular Age</td>\n<td style=\"text-align: left;\"><strong>Time is a continuum.</strong> A 55-year-old has exactly 5 more years of arterial stiffening than a 50-year-old. The risk accumulates progressively.</td>\n<td style=\"text-align: left;\"><strong>Standard Scale</strong><br>(Z-score normalization).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>BP</strong></td>\n<td style=\"text-align: left;\">Resting BP</td>\n<td style=\"text-align: left;\"><strong>It measures Pressure in mmHg.</strong> 160 mmHg exerts physically more force on the artery walls than 120 mmHg. It is a physics measurement.</td>\n<td style=\"text-align: left;\"><strong>Robust Scale</strong><br>(Use Median/IQR because BP often has extreme spikes/outliers).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Cholesterol</strong></td>\n<td style=\"text-align: left;\">Lipid Burden</td>\n<td style=\"text-align: left;\"><strong>It measures Concentration in mg/dL.</strong> It represents the <em>amount</em> of plaque-building material in the blood. More is linearly (or logarithmically) worse.</td>\n<td style=\"text-align: left;\"><strong>Log Transform <marimo-tex class=\"arithmatex\">||(\\to||)</marimo-tex> Standard Scale</strong><br>(Fixes the right-skewed distribution).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Max HR</strong></td>\n<td style=\"text-align: left;\">Max Heart Rate</td>\n<td style=\"text-align: left;\"><strong>It measures Rate in BPM.</strong> It captures the exact physical limit of the heart engine. 150 bpm is a specific frequency.</td>\n<td style=\"text-align: left;\"><strong>Standard Scale</strong></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>ST depression</strong></td>\n<td style=\"text-align: left;\">Ischemic Burden</td>\n<td style=\"text-align: left;\"><strong>It measures Distance in mm.</strong> A 2mm depression indicates physically more tissue suffocation than a 1mm depression.</td>\n<td style=\"text-align: left;\"><strong>Standard Scale</strong></td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h3 id=\"nominal-features-names-not-numbers\">Nominal Features (Names, Not Numbers)</h3>\n<span class=\"paragraph\"><em>Treatment: These are categories disguised as numbers. We MUST \"One-Hot Encode\" them to prevent the model from finding false mathematical patterns.</em></span>\n<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Feature</th>\n<th style=\"text-align: left;\">Domain Label</th>\n<th style=\"text-align: left;\">Why is it <strong>Nominal</strong>?</th>\n<th style=\"text-align: left;\">Logistic Reg. Action (Baseline Model)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>Chest pain type</strong></td>\n<td style=\"text-align: left;\">Symptom Type</td>\n<td style=\"text-align: left;\"><strong>Identity Mistake.</strong><br>1=Typical, 2=Atypical, 3=Non-Pain, 4=Asymptomatic.<br>Is \"Non-Pain\" (3) three times worse than \"Typical\" (1)? No. They are just different descriptions.</td>\n<td style=\"text-align: left;\"><strong>One-Hot Encode (drop='first')</strong><br><em>Critical: Without this, the model fails.</em></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>EKG results</strong></td>\n<td style=\"text-align: left;\">Resting EKG</td>\n<td style=\"text-align: left;\"><strong>Pathology Mismatch.</strong><br>0=Normal, 1=Wave Issue, 2=Hypertrophy (Large Heart).<br>A \"Large Heart\" (2) is not double a \"Wave Issue\" (1). They are completely different biological problems.</td>\n<td style=\"text-align: left;\"><strong>One-Hot Encode (drop='first')</strong></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Thallium</strong></td>\n<td style=\"text-align: left;\">Thallium Defect</td>\n<td style=\"text-align: left;\"><strong>Arbitrary Labels.</strong><br>3=Normal, 6=Fixed Scar, 7=Reversible Ischemia.<br>The numbers 3, 6, 7 are legacy codes from the machine. Treating 6 as \"twice as bad\" as 3 is mathematically absurd.</td>\n<td style=\"text-align: left;\"><strong>One-Hot Encode (drop='first')</strong></td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h3 id=\"ordinal-features-rank-matters\">Ordinal Features (Rank Matters)</h3>\n<span class=\"paragraph\"><em>Treatment: There is a clear \"Ladder of Risk.\" We can treat these as Integers (1, 2, 3) because the order correlates with disease severity.</em></span>\n<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Feature</th>\n<th style=\"text-align: left;\">Domain Label</th>\n<th style=\"text-align: left;\">Why is it <strong>Ordinal</strong>?</th>\n<th style=\"text-align: left;\">Logistic Reg. Action (Baseline Model)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>Slope of ST</strong></td>\n<td style=\"text-align: left;\">ST Slope</td>\n<td style=\"text-align: left;\"><strong>Geometric Severity.</strong><br>1=Upsloping (Best), 2=Flat (Warning), 3=Downsloping (Critical).<br>The physiology moves from Healthy <marimo-tex class=\"arithmatex\">||(\\to||)</marimo-tex> Struggling <marimo-tex class=\"arithmatex\">||(\\to||)</marimo-tex> Failing. The order <marimo-tex class=\"arithmatex\">||(1 &lt; 2 &lt; 3||)</marimo-tex> reflects reality.</td>\n<td style=\"text-align: left;\"><strong>Keep as Integer</strong><br>(Preserve the monotonicity).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Number of vessels fluro</strong></td>\n<td style=\"text-align: left;\">Calcified Vessels</td>\n<td style=\"text-align: left;\"><strong>Count of Damage.</strong><br>0, 1, 2, 3 vessels colored.<br>Having 3 blocked vessels is objectively worse than having 1. The \"amount\" of disease scales with the number.</td>\n<td style=\"text-align: left;\"><strong>Keep as Integer</strong></td>\n</tr>\n</tbody>\n</table>\n<hr />\n<h3 id=\"binary-features-yesno-switches\">Binary Features (Yes/No Switches)</h3>\n<span class=\"paragraph\"><em>Treatment: These are already perfect. 0 means \"Off\", 1 means \"On\".</em></span>\n<table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Feature</th>\n<th style=\"text-align: left;\">Domain Label</th>\n<th style=\"text-align: left;\">Why is it <strong>Binary</strong>?</th>\n<th style=\"text-align: left;\">Logistic Reg. Action (Baseline Model)</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>Sex</strong></td>\n<td style=\"text-align: left;\">Biological Sex</td>\n<td style=\"text-align: left;\"><strong>Biological Switch.</strong><br>In this dataset, there are only two states: Male (1) or Female (0).</td>\n<td style=\"text-align: left;\"><strong>None</strong> (Passthrough).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>FBS over 120</strong></td>\n<td style=\"text-align: left;\">Diabetes Flag</td>\n<td style=\"text-align: left;\"><strong>Threshold Switch.</strong><br>While sugar is continuous, this dataset <em>already converted it</em>. You are either High (&gt;120) or Normal. It is a specific flag for Diabetes risk.</td>\n<td style=\"text-align: left;\"><strong>None</strong> (Passthrough).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Exercise angina</strong></td>\n<td style=\"text-align: left;\">Exertional Pain</td>\n<td style=\"text-align: left;\"><strong>Symptom Switch.</strong><br>Did it hurt? Yes (1) or No (0).</td>\n<td style=\"text-align: left;\"><strong>None</strong> (Passthrough).</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Heart Disease</strong></td>\n<td style=\"text-align: left;\">Target</td>\n<td style=\"text-align: left;\"><strong>Outcome Switch.</strong><br>Presence (1) or Absence (0).</td>\n<td style=\"text-align: left;\"><strong>Label Encode</strong></td>\n</tr>\n</tbody>\n</table></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "setup",
+      "code_hash": "fe08eb6bba137014e0217f4ac69c6437",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "995c2afd6792fe3aa5f991a336150c16",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "d41f3c05d6377181d82c929704be4301",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "f93f8b428adb14002595a3febdc849fd",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "16579999a10d1cafdaf7f15e697bcd83",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "cbdf316118f3c59fe0dfdabee919a99d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "679ae48ae18f0b9861907fe95aa6abc2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "df5b8b5d5967e8612fe6cdeeee64abad",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "68274ef370462679ff57517c2825b86b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "e3141839a55e769f281a068d838168f5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "10ed91b6878848a6f62a710a6959b918",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "498f6c499c0614a8a0ba802870e462f9",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "8048461fc2a05e56bbb46cc2f16ec9e9",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "700a67eff82122d4d2261ea40f53b6e1",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "a18777227e3b1f663db6fad5534fb30d",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.1"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "c1c9925619cc9938f0c05da60ca6b739",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"data-integrity-quality-check\">Data Integrity &amp; Quality Check</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "c25930856845c808bd99e26beb06193c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"is-there-missing-data\">Is there missing data?</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "3820c2127fdee695052e91321c10d7fe",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"conclusions\">Conclusions</h3>\n<ul>\n<li>No missing values</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "aa3a09734e4795cfe05ed017400280b2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"are-there-duplicates-or-near-duplicates\">Are there duplicates or near-duplicates?</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "076e4329af9f7aad4c9e32ebc92061fc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"conclusions\">Conclusions</h3>\n<ul>\n<li>No duplicates</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "87a4c9f91f63cd243d146608b36d675e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"are-data-types-consistent-with-domain\">Are data types consistent with domain</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "af378f22b776e3e161c91ad767dae9cd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"conclusion\">Conclusion</h3>\n<ul>\n<li>Yes, each columns has correct datatype according to the domain</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "setup",
+      "code_hash": "f80aa42053e2206ab8dd97bb912e3fe7",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "4edbfcfd91aadbc6fe3fd150f5c51c2b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "ecb35275830202da3c6b85d25372e427",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "8aaf2375451c0851817b145a5e3d20b4",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "fd2b0f8eade53726d3f767afd782d09b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "16579999a10d1cafdaf7f15e697bcd83",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "331b27e1ace612f6e050979e4f42accc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "b99ab9a5ab3182251ab35bfb96165718",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "a048499a3e698fc08193ec6745348574",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "1c05ff576897c383e82cec1840e7c00b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "bdcf5e69ba6eea41a118b80498038f57",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "16579999a10d1cafdaf7f15e697bcd83",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "cb31210b34ab845d4719de1070bf848a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "331b27e1ace612f6e050979e4f42accc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "9394f1b87a8795dc12977f5c36faa9d3",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

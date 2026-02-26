@@ -1,0 +1,22 @@
+target_col: "Heart Disease"
+
+cont_features: 
+  - "Age"
+  - "BP"
+  - "Cholesterol"
+  - "Max HR"
+  - "ST depression"
+
+nominal_features: 
+  - "Chest pain type"
+  - "EKG results"
+  - "Thallium"
+
+ordinal_features: 
+  - "Slope of ST"
+  - "Number of vessels fluro"
+
+binary_features: 
+  - "Sex"
+  - "FBS over 120"
+  - "Exercise angina"

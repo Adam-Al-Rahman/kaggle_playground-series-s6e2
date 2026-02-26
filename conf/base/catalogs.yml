@@ -1,0 +1,141 @@
+raw_ingestion.ds_heart_disease:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: polars.CSVDataset
+    filepath: data/raw_ingestion/train.csv
+
+raw_ingestion.ds_heart_disease_test:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: polars.CSVDataset
+    filepath: data/raw_ingestion/test.csv
+
+processed.ds_heart_disease_train:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/01_primary/preprocessed_lr_train.csv
+
+processed.ds_heart_disease_test:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/01_primary/preprocessed_lr_test.csv
+
+feature_engineered.ds_heart_disease_train:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/features_domain_train.csv
+
+feature_engineered.ds_heart_disease_test:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/features_domain_test.csv
+
+feature_engineered.ds_heart_disease_train_scaled:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/feature_scaled_train.csv
+
+feature_engineered.ds_heart_disease_test_scaled:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/feature_scaled_test.csv
+
+feature_engineered.ds_important_features_train:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/important_features_train.csv
+
+feature_engineered.ds_important_features_test:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/processed/02_feature/important_features_test.csv
+
+baseline_models.model_v0:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pickle.PickleDataset
+    filepath: data/models/artifacts/baseline/baseline_logit_v0.pkl
+
+baseline_models.model_v0_metrics:
+  type: kedro_mlflow.io.metrics.MlflowMetricsHistoryDataset
+
+baseline_models.model_v0_summary:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v0_summary_raw.csv
+    save_args:
+      index: false
+
+baseline_models.model_v0_coefficients:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v0_coefficients.csv
+    save_args:
+      index: false
+
+baseline_models.model_v0_metrics_df:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v0_metrics.csv
+    save_args:
+      index: false
+
+baseline_models.model_v0_submission:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v0_submission.csv
+    save_args:
+      index: false
+
+baseline_models.model_v1:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pickle.PickleDataset
+    filepath: data/models/artifacts/baseline/baseline_logit_v1.pkl
+
+baseline_models.model_v1_metrics:
+  type: kedro_mlflow.io.metrics.MlflowMetricsHistoryDataset
+
+baseline_models.model_v1_summary:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v1_summary_raw.csv
+    save_args:
+      index: false
+
+baseline_models.model_v1_coefficients:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v1_coefficients.csv
+    save_args:
+      index: false
+
+baseline_models.model_v1_metrics_df:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v1_metrics.csv
+    save_args:
+      index: false
+
+baseline_models.model_v1_submission:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/models/predictions/baseline_logit_v1_submission.csv
+    save_args:
+      index: false

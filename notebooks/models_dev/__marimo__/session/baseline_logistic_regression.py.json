@@ -1,0 +1,81 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "d83b031c4f33d2bb914d4ddaeae898a5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"baseline-logistic-regression\">Baseline: Logistic Regression</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "setup",
+      "code_hash": "d1d17c2d9e3baf7fce84759f6822ac07",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "80a85651bd0aa3e2006ec2544aedd854",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "f50f39d4a93c52406f46e466446ee2ee",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "a67b0083146455d530ff95f36123fc29",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "306fbf1fd88a2df047e6f32dbc49a91b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "a538869d64da750830505f7fe7712286",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "8e4dcd3d4e922f48cbac4193efbc7746",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "e6b7d1d49a5d914aa38ecf1a94d54e11",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "001d4645b2f93ffbb6285fb78564bc87",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "2994a654102651d57fb3297be5254689",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

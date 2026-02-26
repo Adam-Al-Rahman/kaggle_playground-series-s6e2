@@ -1,0 +1,603 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "fdcdeab52379fabe44a4228efa11729d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"bivariate-analysis\">Bivariate Analysis</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "1f79d1b03aff01759fa6722f64b9d149",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Based on <a href=\"http://localhost:2718/?file=notebooks%2Fexploratory_data_analysis%2Fraw_inspection%2Ffeature_profiling.py.py#scrollTo=domain_type_inference\" rel=\"noopener noreferrer\" target=\"_blank\">Feature Profiling</a> we got to know about feature types from</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "92880567c7c819ab9acbaf7b7cc3fdb6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"numerical-vs-numerical\">NUMERICAL vs. NUMERICAL</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "df25182cd3ea77208025fac65bc801da",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Pearson (r): Measures the linear relationship. It asks: \"If X goes up by 1 unit, does Y go up by a constant amount?\" A value of \u22120.0040 is effectively zero. There is no straight-line relationship.</span>\n<span class=\"paragraph\">Spearman (\u03c1): Measures the monotonic relationship using ranks. It asks: \"If X increases, does Y generally increase, even if it's not a straight line?\" A value of \u22120.0027 means there isn't even a consistent \"upward\" or \"downward\" trend.</span>\n<span class=\"paragraph\">Mutual Information (MI): Measures dependency (including non-linear). It uses entropy to ask: \"How much does knowing X reduce my uncertainty about Y?\" A value of 0.0005 is extremely low, suggesting that X provides almost no information about Y.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "37a0f69d201d475361ea0aef52c292c3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">These specific values\u2014Pearson at 0.1031, Spearman at 0.1065, and Mutual Information (MI) at 0.0056 --- tell a very specific, interlocking mathematical story.</span>\n<span class=\"paragraph\">We can test if your data represents a simple, noisy linear relationship without any hidden non-linear secrets by looking at the relationship between Pearson's r and Mutual Information <marimo-tex class=\"arithmatex\">||(I(X;Y)||)</marimo-tex> for bivariate normal distributions:</span>\n<marimo-tex class=\"arithmatex\">||[\nI(X;Y) = -\\frac{1}{2} ln(1 - r^2)\n||]</marimo-tex><span class=\"paragraph\">Let's plug Pearson value into the derivation:</span>\n<ul>\n<li>Square the Pearson correlation: <marimo-tex class=\"arithmatex\">||(0.1031^2 = 0.0106||)</marimo-tex></li>\n<li>Calculate the natural log of the remainder: <marimo-tex class=\"arithmatex\">||(ln(1\u22120.0106) \\approx \u22120.0106||)</marimo-tex></li>\n<li>Multiply by <marimo-tex class=\"arithmatex\">||(\u22120.5: \u2212\\frac{1}{2} \\times \u22120.0106 \\approx 0.0053||)</marimo-tex></li>\n</ul>\n<span class=\"paragraph\">Your actual empirical Mutual Information is 0.0056, which almost perfectly matches the theoretical Gaussian limit of 0.0053.</span>\n<span class=\"paragraph\"><strong>The Conclusion</strong>: This proves there are no hidden, complex, or non-linear patterns. The slight 10% correlation is entirely linear, and the remaining 90% is purely normally distributed noise.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "5a3a126009c49122427b5d79f120fe7d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"categorical-vs-categorical\">CATEGORICAL vs. CATEGORICAL</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WfYj",
+      "code_hash": "2591b85aa9a4122134e2453bb83bb278",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"numerical-vs-categorical\">NUMERICAL vs. CATEGORICAL</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "setup",
+      "code_hash": "080ff61a3d817d7293ffbd375091a0cd",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "f93f8b428adb14002595a3febdc849fd",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "68274ef370462679ff57517c2825b86b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "d21acd0ac5b3050297edd98861926121",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "cc87ca9dc02120091205ef6887d9939a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "6e3c3a3042332001c8e0e7f4d775d9df",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "94adc99d2caf61b993342fea52eaa42a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "bfe1a1e8dc7b17c80c97e267882c75dc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "804e24859f033535daf3dd79b5231e22",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "c2f6dc5e1013c2cd77153d074f627f0a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "4b5c78dfd977f8f5934e9fd05038e4d9",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "3664b8f42a2f471a36a9217ab65dd187",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "185b29716b162c6dc9bed14133ea0d6f",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "b9df81afcaa8755c0abafb441aa79ef7",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "598e4b76c363d796f81bf56cd4ac25ee",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "38132d4c74c0af4f7d8766496d8595a3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "4ffcb221e74f106720d28b9020f88a71",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "3b25f30911cc320be1a36c6de6b59e52",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "8605ca60484490a675b0008fc430db49",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "303cf27c72600998a9f0efbda6355ec4",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "ac33471a164ffa8eb374a2fc6992d79c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "5a784c6ba873d698e502cce4a9640018",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "8044c47868e3bb2e61cd445e406770f3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "762a18346e025221181ea17c865a1a87",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "9c8b9bdd9259257c4fcd405233ccb545",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": "d99502a97d0998c41d5bbd327e083717",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "f6d72b87ba98e61079fce47190232bdc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "f6df6b006594acb7d8a1dc85158965d7",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "473d1f6784e2ba98d8c8fbd6cab52b3a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "bf26ba11723ca8f9a8f3c5e1a2991acc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "93850aaf7f5f823ea26511a2cc285cbc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "fad726fbe334cec346255f73ed92b1de",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "05d3526d52ef213c0346193f338d1d5c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "wAgl",
+      "code_hash": "ecac38380615f51aee315032988f2329",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "rEll",
+      "code_hash": "af3519ba1f8b61875878de3179f6a564",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dGlV",
+      "code_hash": "5c4f31b088980e339a75d72a60d84d51",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "1ab89a04a9d14fe817973509e5eccbde",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lgWD",
+      "code_hash": "61ac68794f737702d413fbd03589cbba",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": "3c6378bc1fcf132ac85d9c1343e1156d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "fwwy",
+      "code_hash": "1b2dfeb3be6d63633be52ebfb6494d5b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "LJZf",
+      "code_hash": "f9c6ceb62ebe6a57666866eb733a4ba5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "urSm",
+      "code_hash": "e87cdd601cd2d0a26b2c650d07b57bad",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "f4bc58610438d25851cc964af7726256",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": "1cc5759f3a91ca5f3a1bf21360c336b6",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "CcZR",
+      "code_hash": "db9916fe2bb8edd0c66334c2b5c7e608",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "YWSi",
+      "code_hash": "0675f135f186ce0693e14ea5c6d61915",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "zlud",
+      "code_hash": "3d0e8fa491ed49bc6c9a6f3ff2cda7b2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "tZnO",
+      "code_hash": "19983abdca4b0ac9c0793f8dbfbd412a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
+      "code_hash": "c8efb555a9cc5cd55f881bdd0c3dcaec",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "CLip",
+      "code_hash": "c7007af121c97d66d9993d88b36190ed",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "YECM",
+      "code_hash": "066c2652df85d8032201c7da759bbf42",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "cEAS",
+      "code_hash": "54d2812a903f8d24d533749518081e09",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iXej",
+      "code_hash": "e563a636f2436c5696132c7ef5c133e2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "EJmg",
+      "code_hash": "d55bd9c6aefedf24130132ed5bd141f8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "UmEG",
+      "code_hash": "4260e15fb231e96ba20d3c70fbd49454",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vEBW",
+      "code_hash": "b4683e16db23b76567ee69bf9a76de1c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kLmu",
+      "code_hash": "a2969c662bf1bc859d1e45f3d4914f59",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IpqN",
+      "code_hash": "60ee68f0be2f9d9f2cbcd6238cb07918",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dxZZ",
+      "code_hash": "02ac8e00fcd8e66be4e3655512ea8028",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dlnW",
+      "code_hash": "a8de7e9ca0bc27784288b3aa152ce352",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TTti",
+      "code_hash": "252129b5833b05fb7ff0fba0e695fcde",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RKFZ",
+      "code_hash": "23db70074bd3194002f104d081c641c6",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IaQp",
+      "code_hash": "2ebf9836b16521c8eb692ab5305f718e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IWgg",
+      "code_hash": "70782e6cf8f51ccc9873a46e8dabbb7d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "fCoF",
+      "code_hash": "4adbd969f01f7fde36cb5e6a5922e7be",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "LkGn",
+      "code_hash": "2f7d8a2b76ae02c4e3147bafccebda33",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "zVRe",
+      "code_hash": "d851ffe3a0c994f87bdc9beef0dc8b2c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "woaO",
+      "code_hash": "911245374e5c6e92453a690bd649914a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "HnMC",
+      "code_hash": "cbe570355ef9fb52a45edff5c0e833a0",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "wadT",
+      "code_hash": "e31f55e503bfcc93ff5a6a3b51db3470",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "VCRE",
+      "code_hash": "0083ef1d674e02ba48ffd5cf12fbebb5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "hgqU",
+      "code_hash": "929188b17e4bb857402927b68225ce4f",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PSUk",
+      "code_hash": "47ec0e4378898d892012b17e92a34d7d",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "mfOT",
+      "code_hash": "ce96a88f5a5d6c6f9a58dc99e3d4eb51",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vGiW",
+      "code_hash": "ac04b5a34f9d22cf579c92b43ea66b93",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SYQT",
+      "code_hash": "05515e652a9e1278264adfcbcd1e9462",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bMrW",
+      "code_hash": "437e83fd0e50b076b1196e0e946c7c51",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PSQn",
+      "code_hash": "1308fbda16c863dde951c856bccc2f2e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "OfTS",
+      "code_hash": "e446f15e7a16cf027d766d8284706edb",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lQxp",
+      "code_hash": "b3e29e180066f3d61c38cc9d6adff86e",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Plbk",
+      "code_hash": "8f303728f42244efff19196d3ab3827c",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "rSYo",
+      "code_hash": "42e1d21aaf1af706ae6380be39e8919b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "HuZB",
+      "code_hash": "91f1d544ae759d741f02ef842e59b99b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Ynfw",
+      "code_hash": "a66ef9705a8c1e4f076f9f38c0bacc13",
+      "outputs": [],
+      "console": []
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "8b80d6120b593cf2ee07e236a163e8b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TmeI",
+      "code_hash": "513136e26eaf827bf016969686232ba5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-callout-output data-html='&quot;&lt;div style=&#x27;display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem&#x27;&gt;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;h2 id=&#92;&quot;extracted-insights&#92;&quot;&gt;Extracted Insights&lt;/h2&gt;&lt;/span&gt;&lt;marimo-json-output data-json-data=&#x27;{&amp;quot;important features&amp;quot;:[&amp;quot;HR_Deficit&amp;quot;,&amp;quot;Thallium&amp;quot;,&amp;quot;Chest pain type&amp;quot;]}&#x27; data-value-types=&#x27;&amp;quot;python&amp;quot;&#x27;&gt;&lt;/marimo-json-output&gt;&lt;/div&gt;&quot;' data-kind='&quot;success&quot;'></marimo-callout-output>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HDys",
+      "code_hash": "d8de6c0955eecaa0c9d784aa6f0c053d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"important-features\">Important Features</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ybhX",
+      "code_hash": "1b299d4b7c5d187836b412661b40c6db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[02/26/26 11:38:01] INFO     Using                   __init__.py:269\n                             'conf/logging.yml' as                  \n                             logging configuration.                 \n                             You can change this by                 \n                             setting the                            \n                             KEDRO_LOGGING_CONFIG                   \n                             environment variable                   \n                             accordingly.                           \n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "/home/adam-al-rahman/miniforge3/envs/machine_learning/lib/python3.12/site-packages/mlflow/pyfunc/utils/data_validation.py:186: UserWarning: \u001b[33mAdd type hints to the `predict` method to enable data validation and automatic signature inference during model logging. Check https://mlflow.org/docs/latest/model/python_model.html#type-hint-usage-in-pythonmodel for more details.\u001b[0m\n  color_warning(\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "                    INFO     Registering new       mlflow_hook.py:65\n                             custom resolver:                       \n                             'km.random_name'                       \n                    INFO     The          kedro_mlflow_config.py:294\n                             'tracking_ur                           \n                             i' key in                              \n                             mlflow.yml                             \n                             is relative                            \n                             ('server.mlf                           \n                             low_(trackin                           \n                             g|registry)_                           \n                             uri =                                  \n                             mlruns'). It                           \n                             is converted                           \n                             to a valid                             \n                             uri:                                   \n                             'file:///hom                           \n                             e/adam-al-ra                           \n                             hman/.codex/                           \n                             kaggle/playg                           \n                             round-series                           \n                             -s6e2/mlruns                           \n                             '                                      \n                    WARNING  Replacing dataset   data_catalog.py:525\n                             'baseline_models.mo                    \n                             del_v0_metrics'                        \n                    INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_heart_disease_                     \n                             train_scaled                           \n                             (MlflowCSVDataset)                     \n                             ...                                    \n[02/26/26 11:38:04] INFO     Loading data from  data_catalog.py:1048\n                             feature_engineered                     \n                             .ds_heart_disease_                     \n                             test_scaled                            \n                             (MlflowCSVDataset)                     \n                             ...                                    \n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "dgtr",
+      "code_hash": "e2485ecae05bc396751a9f8e2b31e559",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='dgtr-0' random-id='a32caa52-93cf-da92-a964-7d0f47de0422'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;HR_Deficit&#92;&quot;:4.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1},{&#92;&quot;HR_Deficit&#92;&quot;:-3.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.9029508002638027,&#92;&quot;Heart Disease&#92;&quot;:0},{&#92;&quot;HR_Deficit&#92;&quot;:13.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.4346433659260955,&#92;&quot;Heart Disease&#92;&quot;:0},{&#92;&quot;HR_Deficit&#92;&quot;:26.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0},{&#92;&quot;HR_Deficit&#92;&quot;:37.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1},{&#92;&quot;HR_Deficit&#92;&quot;:35.0,&#92;&quot;Thallium&#92;&quot;:7.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1},{&#92;&quot;HR_Deficit&#92;&quot;:9.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:1},{&#92;&quot;HR_Deficit&#92;&quot;:9.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:-1.2382949645440005,&#92;&quot;Heart Disease&#92;&quot;:0},{&#92;&quot;HR_Deficit&#92;&quot;:47.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:0},{&#92;&quot;HR_Deficit&#92;&quot;:26.0,&#92;&quot;Thallium&#92;&quot;:3.0,&#92;&quot;Chest pain type&#92;&quot;:1.042689690570412,&#92;&quot;Heart Disease&#92;&quot;:0}]&quot;' data-total-rows='630000' data-total-columns='4' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;HR_Deficit&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;Thallium&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;Chest pain type&quot;,[&quot;number&quot;,&quot;f64&quot;]],[&quot;Heart Disease&quot;,[&quot;integer&quot;,&quot;i64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false' data-download-file-name='&quot;df&quot;'></marimo-table></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ajEn",
+      "code_hash": "a1bd6018f792042590803b878b7356c2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.20.2"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "9ddab8f9ebd3d5f9cf0a888a3d5984aa",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WANs",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    }
+  ]
+}
